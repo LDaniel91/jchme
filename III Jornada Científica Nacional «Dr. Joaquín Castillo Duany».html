@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>III Jornada Científica Nacional «Dr. Joaquín Castillo Duany»</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Montserrat:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sky-1:#E8F4FC;
+    --sky-2:#F4FAFE;
+    --sky-3:#FFFFFF;
+    --navy:#123A63;
+    --navy-2:#0B2645;
+    --gold:#C8A23A;
+    --gold-2:#E0BE5A;
+    --olive:#2F3E2C;
+    --ivory:#F4F1E8;
+    --text:#1B2430;
+    --muted:#5A6B7B;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html,body{
+    font-family:'Source Sans 3', Calibri, sans-serif;
+    color:var(--text);
+    line-height:1.65;
+    background: linear-gradient(180deg, var(--sky-1) 0%, var(--sky-2) 35%, var(--sky-3) 100%);
+    background-attachment: fixed;
+    padding: 40px 20px;
+  }
+
+  .page{
+    max-width: 860px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.85);
+    border: 1px solid rgba(18,58,99,0.08);
+    border-radius: 18px;
+    padding: 60px 70px;
+    box-shadow: 0 30px 80px rgba(18,58,99,0.12);
+    backdrop-filter: blur(6px);
+  }
+
+  /* Encabezado principal */
+  .hero-head{
+    text-align: center;
+    padding-bottom: 30px;
+    border-bottom: 3px double var(--gold);
+    margin-bottom: 34px;
+  }
+  .hero-head .tag{
+    display:inline-block;
+    font-family:'Montserrat', sans-serif;
+    font-weight:700;
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color: var(--gold);
+    padding: 6px 18px;
+    border: 1px solid var(--gold);
+    border-radius: 40px;
+    margin-bottom: 18px;
+    background: rgba(200,162,58,0.08);
+  }
+  h1{
+    font-family:'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    font-size: 2.4rem;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .subtitle{
+    font-family:'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.35rem;
+    color: var(--navy-2);
+    font-style: italic;
+    margin-bottom: 18px;
+  }
+  .slogan{
+    font-family:'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .meta{
+    font-family:'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: .85rem;
+    color: var(--muted);
+    letter-spacing: .04em;
+  }
+
+  h2{
+    font-family:'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--navy);
+    margin: 38px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(200,162,58,0.35);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  h3{
+    font-family:'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--navy-2);
+    margin: 26px 0 10px;
+    letter-spacing: .01em;
+  }
+
+  p{ margin-bottom: 14px; font-size: 1rem; }
+  strong{ color: var(--navy-2); }
+  em{ color: var(--muted); }
+
+  /* Intro destacada */
+  .intro{
+    background: linear-gradient(135deg, rgba(232,244,252,0.9), rgba(255,255,255,0.95));
+    border-left: 5px solid var(--gold);
+    padding: 22px 26px;
+    border-radius: 10px;
+    margin: 24px 0;
+    font-size: 1.02rem;
+  }
+
+  /* Ejes temáticos en tarjetas */
+  .pillars{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin: 18px 0 10px;
+  }
+  .pillar{
+    background: linear-gradient(135deg, #FFFFFF, var(--sky-2));
+    border: 1px solid rgba(18,58,99,0.12);
+    border-radius: 12px;
+    padding: 16px 14px;
+    text-align: center;
+    font-family:'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: .88rem;
+    color: var(--navy);
+    transition: transform .25s ease, box-shadow .25s ease;
+    box-shadow: 0 4px 14px rgba(18,58,99,0.06);
+  }
+  .pillar:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 26px rgba(18,58,99,0.14);
+  }
+  .pillar .ico{ font-size: 1.6rem; display:block; margin-bottom: 6px; }
+
+  /* Tabla */
+  table{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(18,58,99,0.08);
+    font-size: .95rem;
+  }
+  th,td{
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid rgba(18,58,99,0.08);
+  }
+  thead th, tr:first-child th{
+    background: var(--navy);
+    color: var(--ivory);
+    font-family:'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: .82rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  tbody tr:nth-child(even){ background: rgba(232,244,252,0.5); }
+  tbody tr:hover{ background: rgba(200,162,58,0.08); }
+
+  /* Cajas especiales */
+  .box{
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 18px 0;
+  }
+  .box-fechas{
+    background: linear-gradient(135deg, rgba(18,58,99,0.06), rgba(232,244,252,0.7));
+    border-left: 5px solid var(--navy);
+  }
+  .box-cuotas{
+    background: linear-gradient(135deg, rgba(200,162,58,0.12), rgba(232,244,252,0.7));
+    border-left: 5px solid var(--gold);
+  }
+  .box-beneficios{
+    background: linear-gradient(135deg, rgba(47,62,44,0.06), rgba(232,244,252,0.7));
+    border-left: 5px solid var(--olive);
+  }
+  .box ul{ list-style: none; padding-left: 0; }
+  .box li{ padding: 6px 0 6px 26px; position: relative; font-size: .98rem; }
+  .box li::before{ content:''; position:absolute; left:0; top:14px; width:8px; height:8px; border-radius:50%; background: var(--gold); }
+
+  /* Link web */
+  .web-cta{
+    background: linear-gradient(135deg, var(--navy), var(--navy-2));
+    color: var(--ivory);
+    text-align: center;
+    padding: 32px 24px;
+    border-radius: 16px;
+    margin: 30px 0;
+    box-shadow: 0 14px 40px rgba(11,38,69,0.28);
+  }
+  .web-cta p{ margin-bottom: 14px; font-size: 1rem; opacity: .92; }
+  .web-cta a{
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy-2);
+    font-family:'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 14px 34px;
+    border-radius: 60px;
+    text-decoration: none;
+    letter-spacing: .03em;
+    box-shadow: 0 10px 24px rgba(200,162,58,0.4);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .web-cta a:hover{ transform: translateY(-3px); box-shadow: 0 14px 30px rgba(200,162,58,0.55); }
+
+  /* Cita final */
+  blockquote{
+    border-left: 5px solid var(--gold);
+    background: linear-gradient(135deg, rgba(200,162,58,0.08), rgba(255,255,255,0.9));
+    padding: 20px 26px;
+    border-radius: 10px;
+    font-family:'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 1.08rem;
+    color: var(--navy-2);
+    margin: 26px 0;
+  }
+
+  /* Correos */
+  .mails{ list-style:none; padding:0; }
+  .mails li{
+    background: rgba(232,244,252,0.7);
+    border-radius: 60px;
+    padding: 10px 20px;
+    margin-bottom: 8px;
+    font-family:'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: .92rem;
+    color: var(--navy);
+    display: inline-block;
+    margin-right: 8px;
+  }
+
+  /* Footer */
+  .closing{
+    text-align: center;
+    margin-top: 44px;
+    padding-top: 30px;
+    border-top: 3px double var(--gold);
+  }
+  .closing h3{
+    font-family:'Playfair Display', Georgia, serif;
+    font-size: 1.4rem;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .closing .eslogan{
+    font-family:'Playfair Display', Georgia, serif;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+  }
+  .hashtags{
+    font-family:'Montserrat', sans-serif;
+    font-size: .78rem;
+    color: var(--muted);
+    line-height: 1.9;
+    letter-spacing: .02em;
+  }
+  .hashtags span{
+    display: inline-block;
+    background: rgba(200,162,58,0.12);
+    color: var(--gold);
+    padding: 4px 12px;
+    border-radius: 40px;
+    margin: 0 3px;
+    font-weight: 600;
+  }
+
+  /* Imagen final */
+  .final-img{
+    text-align: center;
+    margin-top: 34px;
+  }
+  .final-img img{
+    max-width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(18,58,99,0.18);
+    border: 4px solid #fff;
+  }
+
+  /* Separadores */
+  hr{
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(200,162,58,0.5), transparent);
+    margin: 32px 0;
+  }
+
+  /* ─── Estilos para impresión / PDF ─── */
+  @media print{
+    @page{
+      size: A4;
+      margin: 14mm 12mm;
+    }
+    html,body{
+      background: #FFFFFF !important;
+      padding: 0 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .page{
+      max-width: 100%;
+      box-shadow: none;
+      border: none;
+      border-radius: 0;
+      padding: 0;
+      background: #FFFFFF;
+      backdrop-filter: none;
+    }
+    h1{ font-size: 2rem; }
+    h2{ font-size: 1.25rem; page-break-after: avoid; }
+    h3{ page-break-after: avoid; }
+    table, blockquote, .box, .web-cta, .intro{
+      page-break-inside: avoid;
+    }
+    .pillar:hover{ transform: none; box-shadow: none; }
+    .web-cta a:hover{ transform: none; }
+    .final-img img{ box-shadow: none; border-width: 2px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header class="hero-head">
+    <span class="tag">Convocatoria Oficial</span>
+    <h1>III Jornada Científica Nacional</h1>
+    <div class="subtitle">«Dr. Joaquín Castillo Duany»</div>
+    <div class="slogan">Ciencia en Guardia · 64 años cuidando la vida con ciencia</div>
+    <div class="meta">📍 Santiago de Cuba · 🗓️ 6 al 8 de enero de 2027 · 🏥 Hospital Militar «Dr. Joaquín Castillo Duany»</div>
+  </header>
+
+  <div class="intro">
+    <h2>🩺 La ciencia sale de la gaveta</h2>
+    <p>Entre guardias, consultas y clases, cada servicio produce experiencia valiosa. Sin un escenario común, ese conocimiento se dispersa. <strong>Por eso nace esta Jornada</strong>: para que tu investigación sea vista, discutida y reconocida por pares y autoridades científicas del territorio.</p>
+    <p>Durante <strong>64 años</strong>, este hospital ha velado por la vida. Hoy también vela por la <strong>ciencia que la sostiene</strong>.</p>
+  </div>
+
+  <h2>🎯 Tema central</h2>
+  <p><strong>Avances de los servicios médicos, integración interinstitucional y transformación digital.</strong></p>
+
+  <h2>📚 Cinco ejes temáticos</h2>
+  <div class="pillars">
+    <div class="pillar"><span class="ico">🦠</span>Servicios de salud ante epidemias</div>
+    <div class="pillar"><span class="ico">🌿</span>Medicina tradicional y natural</div>
+    <div class="pillar"><span class="ico">📖</span>Docencia médica e investigación</div>
+    <div class="pillar"><span class="ico">🏥</span>Asistencia médica hospitalaria</div>
+    <div class="pillar"><span class="ico">👨‍⚕️</span>Atención Primaria de Salud</div>
+  </div>
+
+  <h2>🗓️ Modalidades y fechas clave</h2>
+  <table>
+    <thead>
+      <tr><th>📌</th><th>Actividad</th><th>Fecha</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>🎓</td><td><strong>Curso pre jornada</strong></td><td>7 al 11 de diciembre de 2026</td></tr>
+      <tr><td>💻</td><td><strong>Modalidad virtual</strong></td><td>6 y 7 de enero de 2027</td></tr>
+      <tr><td>🎖️</td><td><strong>Acto por el 64 aniversario</strong></td><td>7 de enero de 2027</td></tr>
+      <tr><td>🏛️</td><td><strong>Modalidad presencial</strong></td><td>8 de enero de 2027</td></tr>
+    </tbody>
+  </table>
+
+  <h2>✍️ Fechas límite</h2>
+  <div class="box box-fechas">
+    <ul>
+      <li>📄 <strong>Resumen (título + resumen)</strong>: hasta el 30 de noviembre de 2026</li>
+      <li>📝 <strong>Trabajo completo (Word)</strong>: hasta el 10 de diciembre de 2026</li>
+      <li>💳 <strong>Pago presencial y virtual</strong>: antes del 10 de diciembre de 2026</li>
+    </ul>
+  </div>
+
+  <h2>💰 Cuotas de participación</h2>
+  <div class="box box-cuotas">
+    <ul>
+      <li>🏛️ <strong>Presencial</strong>: $1500</li>
+      <li>💻 <strong>Virtual</strong>: $300</li>
+      <li>🎓 <strong>Curso pre evento</strong>: $50 <em>(se paga el día del curso)</em></li>
+    </ul>
+  </div>
+
+  <h2>🖋️ Formas de presentación</h2>
+  <p>✅ Tema libre (PowerPoint · Office 2010) &nbsp;·&nbsp; ✅ Mesa redonda &nbsp;·&nbsp; ✅ Cartel digital</p>
+
+  <h2>🏅 Beneficios de participar</h2>
+  <div class="box box-beneficios">
+    <ul>
+      <li>🔹 Reconocimiento científico entre pares y autoridades</li>
+      <li>🔹 Integración entre instituciones militares, civiles y docentes</li>
+      <li>🔹 Curso pre jornada de actualización profesional</li>
+      <li>🔹 Modalidad virtual accesible desde cualquier provincia</li>
+      <li>🔹 Retroalimentación real sobre tu investigación</li>
+      <li>🔹 Participación en el acto por el <strong>64 aniversario</strong> del hospital</li>
+    </ul>
+  </div>
+
+  <div class="web-cta">
+    <p>🌐 Consulta la convocatoria completa, el programa y todos los detalles en:</p>
+    <a href="https://ldaniel91.github.io/jchme/" target="_blank" rel="noopener">Visitar la página oficial</a>
+    <p style="margin-top:16px; font-size:.85rem; opacity:.75;">https://ldaniel91.github.io/jchme/</p>
+  </div>
+
+  <h2>📩 Recepción de trabajos</h2>
+  <p>Las gestoras de información de la <strong>Biblioteca del Hospital Militar</strong> reciben los resúmenes en entrega personal o por correo con acuse de recibo a:</p>
+  <ul class="mails">
+    <li>✉️ daily.s@infomed.sld.cu</li>
+    <li>✉️ g.martinez@infomed.sld.cu</li>
+    <li>✉️ mirurgia.zorzano@infomed.sld.cu</li>
+  </ul>
+  <p>🏥 <strong>Biblioteca del Hospital Militar «Dr. Joaquín Castillo Duany»</strong> · 📍 Santiago de Cuba</p>
+
+  <h2>🗣️ Autoridades invitadas</h2>
+  <p>Con la presencia del <strong>Jefe de Servicios Médicos del Ejército Oriental</strong>, el <strong>Director Provincial de Salud</strong>, el <strong>Presidente Provincial de Sociedades Científicas</strong>, los <strong>rectores de la UCM-SC, la Universidad de Oriente y la Escuela InterArma</strong>, los <strong>jefes de Servicios Médicos de las regiones militares de Santiago de Cuba y Guantánamo</strong>, y el <strong>decano de la Facultad de Medicina No. 2</strong>.</p>
+
+  <h2>⏳ Última llamada</h2>
+  <blockquote>
+    <strong>Los resúmenes cierran el 30 de noviembre. Los pagos, el 10 de diciembre.</strong><br>
+    Quien llega a tiempo asegura su lugar. Quien lo deja para después, suele quedarse con la investigación en la gaveta. 🗄️
+  </blockquote>
+  <p style="text-align:center; font-size:1.05rem;"><strong>Envía hoy tu título y resumen. Tu ciencia merece un escenario nacional.</strong> 🇨🇺</p>
+
+  <div class="closing">
+    <h3>🎖️ Ciencia en Guardia</h3>
+    <div class="eslogan">64 años cuidando la vida con ciencia</div>
+    <div class="hashtags">
+      <span>#CienciaEnGuardia</span>
+      <span>#JornadaCientificaNacional</span>
+      <span>#HospitalMilitarSantiago</span>
+      <span>#64Aniversario</span>
+      <span>#SaludCuba</span>
+      <span>#TransformacionDigitalEnSalud</span>
+    </div>
+  </div>
+
+  <div class="final-img">
+    <img src="/media/ldani/Almacén/!! PROYECTOS WEB + APK/JC HME 64/ciencia-en-guardia/Convocatoria.jpg" alt="Convocatoria III Jornada Científica Nacional">
+  </div>
+
+</div>
+
+</body>
+</html>
