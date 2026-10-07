@@ -1,0 +1,17 @@
+ciencia-en-guardia/
+│
+├── index.html
+├── css/
+│   └── styles.css
+├── js/
+│   └── main.js
+└── assets/
+    └── img/
+        ├── logo.png          ← aquí pones tu logo
+        ├── img1.jpg          ← fachada del hospital
+        ├── img2.jpg          ← investigadora nocturna
+        ├── img3.jpg          ← laboratorio
+        ├── img4.jpg          ← medicina natural
+        ├── img5.jpg          ← transformación digital
+        ├── img6.jpg          ← auditorio
+        └── img7.jpg          ← emblema 64
