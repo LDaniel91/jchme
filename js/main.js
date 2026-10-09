@@ -58,42 +58,87 @@
     reveals.forEach(el => el.classList.add('visible'));
   }
 
-  /* ─── 5. Cuenta regresiva al 30 de noviembre de 2026 ─── */
-  const deadline = new Date('2026-11-30T23:59:59-05:00').getTime();
-  const cd = {
+  /* ─── 5. Fechas clave del evento (hora de Cuba, UTC-5) ─── */
+  const FECHAS = {
+    cierreResumenes: new Date('2026-11-30T23:59:59-05:00').getTime(), // cierre de resúmenes
+    inicioJornada:   new Date('2027-01-06T00:00:00-05:00').getTime(), // inicio de la Jornada
+    finJornada:      new Date('2027-01-08T23:59:59-05:00').getTime()  // fin de la Jornada
+  };
+
+  const pad = (n) => String(n).padStart(2, '0');
+
+  /* ─── 5.A Cuenta regresiva HERO → cierre de resúmenes ─── */
+  const cdCierre = {
     days:  document.getElementById('cd-days'),
     hours: document.getElementById('cd-hours'),
     mins:  document.getElementById('cd-mins'),
     secs:  document.getElementById('cd-secs')
   };
 
-  const pad = (n) => String(n).padStart(2, '0');
-
-  function updateCountdown() {
-    const now  = Date.now();
-    const diff = deadline - now;
+  function updateCierre() {
+    const diff = FECHAS.cierreResumenes - Date.now();
 
     if (diff <= 0) {
-      cd.days.textContent  = '00';
-      cd.hours.textContent = '00';
-      cd.mins.textContent  = '00';
-      cd.secs.textContent  = '00';
+      cdCierre.days.textContent  = '00';
+      cdCierre.hours.textContent = '00';
+      cdCierre.mins.textContent  = '00';
+      cdCierre.secs.textContent  = '00';
       return;
     }
 
-    const days  = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const mins  = Math.floor((diff / (1000 * 60)) % 60);
-    const secs  = Math.floor((diff / 1000) % 60);
-
-    cd.days.textContent  = pad(days);
-    cd.hours.textContent = pad(hours);
-    cd.mins.textContent  = pad(mins);
-    cd.secs.textContent  = pad(secs);
+    cdCierre.days.textContent  = pad(Math.floor(diff / (1000 * 60 * 60 * 24)));
+    cdCierre.hours.textContent = pad(Math.floor((diff / (1000 * 60 * 60)) % 24));
+    cdCierre.mins.textContent  = pad(Math.floor((diff / (1000 * 60)) % 60));
+    cdCierre.secs.textContent  = pad(Math.floor((diff / 1000) % 60));
   }
 
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
+  /* ─── 5.B Cuenta regresiva SECCIÓN → inicio de la Jornada ─── */
+  const cdJornada = {
+    days:  document.getElementById('jc-days'),
+    hours: document.getElementById('jc-hours'),
+    mins:  document.getElementById('jc-mins'),
+    secs:  document.getElementById('jc-secs'),
+    wrap:  document.getElementById('journey-countdown')
+  };
+
+  function updateJornada() {
+    if (!cdJornada.days) return;
+
+    const diff = FECHAS.inicioJornada - Date.now();
+    const now  = Date.now();
+
+    // Si ya inició la Jornada
+    if (diff <= 0 && now < FECHAS.finJornada) {
+      cdJornada.days.textContent  = '🎉';
+      cdJornada.hours.textContent = 'EN';
+      cdJornada.mins.textContent  = 'CUR';
+      cdJornada.secs.textContent  = 'SO';
+      return;
+    }
+
+    // Si ya terminó la Jornada
+    if (now >= FECHAS.finJornada) {
+      cdJornada.days.textContent  = '—';
+      cdJornada.hours.textContent = '—';
+      cdJornada.mins.textContent  = '—';
+      cdJornada.secs.textContent  = '—';
+      return;
+    }
+
+    // Cuenta normal
+    cdJornada.days.textContent  = pad(Math.floor(diff / (1000 * 60 * 60 * 24)));
+    cdJornada.hours.textContent = pad(Math.floor((diff / (1000 * 60 * 60)) % 24));
+    cdJornada.mins.textContent  = pad(Math.floor((diff / (1000 * 60)) % 60));
+    cdJornada.secs.textContent  = pad(Math.floor((diff / 1000) % 60));
+  }
+
+  /* ─── Tick global cada segundo ─── */
+  function tick() {
+    updateCierre();
+    updateJornada();
+  }
+  tick();
+  setInterval(tick, 1000);
 
   /* ─── 6. Scroll suave para enlaces internos ─── */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
