@@ -1,5 +1,7 @@
 /* ═══════════════════════════════════════════
-   CIENCIA EN GUARDIA — Hoja de estilos
+   III JORNADA CIENTÍFICA NACIONAL
+   Dr. Joaquín Castillo Duany
+   Hoja de estilos
    ═══════════════════════════════════════════ */
 
 :root{
@@ -48,7 +50,7 @@ button{ font: inherit; cursor: pointer; border: none; background: none; }
 
 /* ─── Tipografía ─── */
 h1,h2,h3{ font-family: var(--font-t); font-weight: 700; line-height: 1.15; }
-h1{ font-size: clamp(2.6rem, 6vw, 5rem); }
+h1{ font-size: clamp(2.2rem, 5.4vw, 4.4rem); }
 h2{ font-size: clamp(1.9rem, 3.6vw, 2.9rem); }
 h3{ font-size: clamp(1.15rem, 1.6vw, 1.35rem); }
 
@@ -103,7 +105,7 @@ h3{ font-size: clamp(1.15rem, 1.6vw, 1.35rem); }
 .brand-logo{ height: 52px; width:auto; transition: height .35s ease; }
 .site-header.scrolled .brand-logo{ height: 42px; }
 .brand-text{ display:flex; flex-direction: column; line-height: 1.15; color: var(--ivory); }
-.brand-title{ font-family: var(--font-t); font-weight: 700; font-size: 1.15rem; }
+.brand-title{ font-family: var(--font-t); font-weight: 700; font-size: 1.05rem; }
 .brand-sub{ font-family: var(--font-s); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; opacity: .8; }
 
 .nav ul{ display:flex; align-items:center; gap: 4px; list-style:none; }
@@ -281,7 +283,7 @@ h3{ font-size: clamp(1.15rem, 1.6vw, 1.35rem); }
 .tl-date{ display:block; font-family: var(--font-s); font-weight:700; font-size:.78rem; letter-spacing:.08em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
 .tl-card p{ font-size: .92rem; color: var(--muted); margin-top: 6px; }
 
-/* ─── Cards beneficios ─── */
+/* ─── Cards ─── */
 .cards-3{ display:grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
 .card{
   background: rgba(244,241,232,.05);
@@ -295,7 +297,7 @@ h3{ font-size: clamp(1.15rem, 1.6vw, 1.35rem); }
 .card h3{ color: var(--ivory); margin-bottom: 8px; }
 .card p{ color: rgba(244,241,232,.8); font-size: .96rem; }
 
-/* ─── Temas ─── */
+/* ─── Ejes temáticos ─── */
 .themes{ display:grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
 .theme{
   position: relative;
@@ -316,6 +318,23 @@ h3{ font-size: clamp(1.15rem, 1.6vw, 1.35rem); }
 .theme-body{ position:absolute; bottom: 0; left:0; right:0; padding: 28px 24px; z-index:2; color: var(--ivory); }
 .theme-body h3{ color: var(--ivory); margin-bottom: 6px; }
 .theme-body p{ color: rgba(244,241,232,.85); font-size: .92rem; }
+
+/* ─── Banda tema central ─── */
+.central-band{
+  margin-top: 48px;
+  padding: 28px 34px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(200,162,58,.14), rgba(18,58,99,.18));
+  border-left: 5px solid var(--gold);
+}
+.central-band .eyebrow{ margin-bottom: 8px; color: var(--gold-2); }
+.central-band p{
+  font-family: var(--font-t);
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  color: var(--ivory);
+  margin: 0;
+  line-height: 1.5;
+}
 
 /* ─── CTA band ─── */
 .cta-band{
@@ -348,11 +367,19 @@ h3{ font-size: clamp(1.15rem, 1.6vw, 1.35rem); }
   font-weight: 800; font-size: .78rem;
   display:flex; align-items:center; justify-content:center;
 }
+/* Variante para fondos claros */
+.check-list-dark li{ color: var(--text); }
+.check-list-dark li::before{ background: var(--navy); color: var(--gold); }
+
 .authorities{
   margin-top: 26px; padding-top: 22px;
   border-top: 1px solid rgba(200,162,58,.3);
   font-size: .96rem; font-style: italic;
   color: rgba(244,241,232,.78);
+}
+.authorities-dark{
+  color: var(--muted);
+  border-top-color: rgba(18,58,99,.2);
 }
 
 /* ─── Tabla logística ─── */
@@ -367,12 +394,15 @@ h3{ font-size: clamp(1.15rem, 1.6vw, 1.35rem); }
   width: 240px;
   vertical-align: top;
 }
+.log-table td{ color: var(--text); }
 .log-table tr:last-child th, .log-table tr:last-child td{ border-bottom: none; }
 .log-table tr:hover td{ background: rgba(200,162,58,.05); }
+.table-link{ color: var(--navy); font-weight: 600; border-bottom: 1px solid var(--gold); }
+.table-link:hover{ color: var(--gold); }
 
 /* ─── Contacto ─── */
 .contact-grid{ display:grid; grid-template-columns: 1.2fr 1fr; gap: clamp(32px, 5vw, 70px); align-items:center; }
-.mail-list{ list-style:none; margin-top: 30px; }
+.mail-list{ list-style:none; margin-top: 22px; }
 .mail-list li{ margin-bottom: 12px; }
 .mail-list a{
   display:inline-flex; align-items:center; gap: 12px;
@@ -381,10 +411,36 @@ h3{ font-size: clamp(1.15rem, 1.6vw, 1.35rem); }
   background: rgba(244,241,232,.07);
   border: 1px solid rgba(200,162,58,.25);
   border-radius: 60px;
-  transition: background .25s ease, transform .25s ease;
+  transition: background .25s ease, transform .25s ease, border-color .25s ease;
 }
-.mail-list a:hover{ background: rgba(200,162,58,.15); transform: translateX(6px); }
+.mail-list a:hover{ background: rgba(200,162,58,.15); border-color: var(--gold); transform: translateX(6px); }
 .mail-list span{ color: var(--gold); }
+
+.conv-link{
+  margin-top: 30px;
+  padding: 22px 24px;
+  border-radius: var(--radius);
+  background: rgba(200,162,58,.08);
+  border: 1px dashed rgba(200,162,58,.55);
+}
+.conv-link .eyebrow{ margin-bottom: 6px; }
+.conv-link a{
+  display: inline-block;
+  font-family: var(--font-s);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--gold);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 2px;
+  margin-bottom: 10px;
+  transition: color .25s ease, border-color .25s ease;
+}
+.conv-link a:hover{ color: var(--gold-2); border-color: var(--gold-2); }
+.conv-link p{
+  color: rgba(244,241,232,.75);
+  font-size: .9rem;
+  margin: 0;
+}
 
 .hashtags{ display:flex; flex-wrap: wrap; gap: 8px; margin-top: 30px; }
 .hashtags span{
@@ -394,7 +450,7 @@ h3{ font-size: clamp(1.15rem, 1.6vw, 1.35rem); }
 }
 
 .cta-side{ text-align:center; }
-.cta-side img{ border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
+.cta-side img{ border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); margin: 0 auto; max-width: 380px; }
 .cta-side-caption{
   font-family: var(--font-t); font-style: italic;
   color: var(--gold); font-size: 1.15rem; margin-top: 20px;
@@ -463,6 +519,7 @@ h3{ font-size: clamp(1.15rem, 1.6vw, 1.35rem); }
   .cd-item{ min-width: 68px; padding: 10px 12px; }
   .cd-num{ font-size: 1.5rem; }
   .footer-brand div{ text-align:center; }
+  .central-band{ padding: 22px 20px; }
 }
 
 @media (max-width: 480px){
