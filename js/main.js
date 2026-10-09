@@ -1,5 +1,6 @@
 /* ═══════════════════════════════════════════
-   CIENCIA EN GUARDIA — Interactividad
+   III JORNADA CIENTÍFICA NACIONAL
+   Dr. Joaquín Castillo Duany — Interactividad
    ═══════════════════════════════════════════ */
 
 (function () {
@@ -27,7 +28,6 @@
     menuToggle.setAttribute('aria-expanded', String(open));
   });
 
-  // Cerrar menú al hacer clic en un enlace
   nav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       nav.classList.remove('open');
@@ -41,7 +41,7 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  /* ─── 4. Animaciones de aparición (IntersectionObserver) ─── */
+  /* ─── 4. Animaciones de aparición ─── */
   const reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
@@ -95,7 +95,7 @@
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  /* ─── 6. Scroll suave para enlaces internos (fallback) ─── */
+  /* ─── 6. Scroll suave para enlaces internos ─── */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
@@ -108,7 +108,7 @@
     });
   });
 
-  /* ─── 7. Año dinámico en el footer (opcional) ─── */
+  /* ─── 7. Año dinámico en el footer ─── */
   const yearEl = document.querySelector('.footer-copy');
   if (yearEl) {
     const y = new Date().getFullYear();
