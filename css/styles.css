@@ -283,6 +283,142 @@ h3{ font-size: clamp(1.15rem, 1.6vw, 1.35rem); }
 .tl-date{ display:block; font-family: var(--font-s); font-weight:700; font-size:.78rem; letter-spacing:.08em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
 .tl-card p{ font-size: .92rem; color: var(--muted); margin-top: 6px; }
 
+/* ─── Tarjeta de pago ─── */
+.payment-card{
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 24px;
+  padding: 32px 36px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, #FFFFFF 0%, #FAF7EE 100%);
+  border: 2px solid var(--gold);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+.payment-card::before{
+  content:'';
+  position:absolute; top:-40%; right:-5%;
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(200,162,58,.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.pay-icon{
+  font-size: 2.4rem;
+  width: 64px; height: 64px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--navy);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(18,58,99,.25);
+  flex-shrink: 0;
+}
+.pay-content{ position: relative; z-index: 1; }
+.pay-content .eyebrow{ color: var(--navy); }
+.pay-content h3{
+  color: var(--navy-2);
+  margin-bottom: 10px;
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+}
+.pay-content > p{
+  color: var(--muted);
+  margin-bottom: 22px;
+  font-size: .98rem;
+}
+
+.pay-rows{ display: flex; flex-direction: column; gap: 14px; }
+.pay-row{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 16px 20px;
+  background: rgba(18,58,99,.04);
+  border-radius: var(--radius);
+  border-left: 4px solid var(--gold);
+}
+.pay-label{ display: flex; flex-direction: column; }
+.pay-row-title{
+  font-family: var(--font-s);
+  font-weight: 700;
+  font-size: .85rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.pay-row-sub{ font-size: .85rem; color: var(--muted); }
+
+.pay-value{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.pay-account{
+  font-family: 'Courier New', ui-monospace, monospace;
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: .06em;
+  color: var(--navy-2);
+  background: var(--white);
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px dashed rgba(200,162,58,.6);
+}
+.copy-btn{
+  font-family: var(--font-s);
+  font-weight: 700;
+  font-size: .78rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 40px;
+  background: var(--navy);
+  color: var(--ivory);
+  transition: background .25s ease, transform .25s ease;
+}
+.copy-btn:hover{
+  background: var(--gold);
+  color: var(--navy-2);
+  transform: translateY(-2px);
+}
+.copy-btn.copied{
+  background: #2E7D32;
+  color: #fff;
+}
+
+.pay-phone{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-s);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--navy);
+  padding: 8px 16px;
+  background: var(--white);
+  border-radius: 40px;
+  border: 1px solid rgba(18,58,99,.2);
+  transition: background .25s ease, border-color .25s ease, transform .25s ease;
+}
+.pay-phone:hover{
+  background: #E7F5EA;
+  border-color: #2E7D32;
+  transform: translateY(-2px);
+}
+
+.pay-note{
+  margin-top: 20px;
+  padding: 12px 16px;
+  background: rgba(200,162,58,.1);
+  border-radius: 10px;
+  font-size: .88rem;
+  color: #7A5C0E;
+  line-height: 1.5;
+}
+
 /* ─── Cuenta regresiva al inicio de la Jornada ─── */
 .journey-countdown{
   margin-top: 64px;
@@ -581,6 +717,19 @@ h3{ font-size: clamp(1.15rem, 1.6vw, 1.35rem); }
   .cd-item-light .cd-num{ font-size: 1.3rem; }
   .footer-brand div{ text-align:center; }
   .central-band{ padding: 22px 20px; }
+
+  /* Tarjeta de pago en móvil */
+  .payment-card{
+    grid-template-columns: 1fr;
+    padding: 24px 20px;
+  }
+  .pay-icon{ font-size: 2rem; width: 54px; height: 54px; }
+  .pay-row{
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 14px 16px;
+  }
+  .pay-account{ font-size: 1rem; }
 }
 
 @media (max-width: 480px){
