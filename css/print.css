@@ -1,0 +1,306 @@
+/* ═══════════════════════════════════════════
+   print.css — Versión imprimible / PDF
+   Fondo blanco · imágenes nítidas · enlaces activos
+   ═══════════════════════════════════════════ */
+
+@page {
+  size: A4;
+  margin: 14mm 12mm 16mm 12mm;
+}
+
+@media print {
+  /* ─── Forzar impresión de fondos, imágenes y fuentes ─── */
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  html, body {
+    background: #FFFFFF !important;
+    color: #1A1A1A !important;
+    font-size: 11pt !important;
+    line-height: 1.5 !important;
+  }
+
+  /* ─── Ocultar elementos interactivos o efímeros ─── */
+  .site-header,
+  .menu-toggle,
+  .nav,
+  .hero-scroll,
+  .to-top,
+  .hero-actions,
+  .countdown,
+  .countdown-light,
+  .journey-countdown,
+  .hashtags,
+  .copy-btn,
+  .cta-band .btn {
+    display: none !important;
+  }
+
+  /* ─── Asegurar que TODO lo animado sea visible al imprimir ─── */
+  .reveal,
+  .reveal:not(.visible) {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* ─── Hero convertido en cabecera blanca con banner ─── */
+  .hero {
+    display: block !important;
+    min-height: auto !important;
+    padding: 0 0 8mm !important;
+    text-align: center !important;
+    background: #FFFFFF !important;
+    color: #1A1A1A !important;
+    overflow: visible !important;
+  }
+  .hero-bg {
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+    height: 65mm !important;
+    margin: 0 0 8mm !important;
+    background-size: cover !important;
+    background-position: center !important;
+    border-radius: 6pt !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  .hero-overlay { display: none !important; }
+  .hero-content { position: static !important; padding: 0 !important; }
+
+  .hero-badge {
+    display: inline-block !important;
+    border-color: #C8A23A !important;
+    color: #123A63 !important;
+    background: #FAF6EA !important;
+    margin-bottom: 12pt !important;
+  }
+  .hero-title { color: #123A63 !important; font-size: 26pt !important; }
+  .hero-title span { color: #C8A23A !important; }
+  .hero-slogan { color: #123A63 !important; }
+  .hero-desc   { color: #1A1A1A !important; opacity: 1 !important; }
+  .countdown-note { color: #555 !important; opacity: 1 !important; }
+
+  /* ─── Secciones: todas a fondo blanco ─── */
+  .section,
+  .section-ivory,
+  .section-dark,
+  .section-navy,
+  .cta-band,
+  .site-footer,
+  .payment-card,
+  .table-wrap,
+  .log-table {
+    background: #FFFFFF !important;
+    color: #1A1A1A !important;
+  }
+
+  .section { padding: 8mm 0 !important; }
+  .section + .section { padding-top: 6mm !important; }
+
+  /* ─── Textos en secciones que eran oscuras ─── */
+  .section-dark p,
+  .section-dark .lead,
+  .section-dark li,
+  .section-dark h2,
+  .section-dark h3,
+  .section-navy p,
+  .section-navy .lead,
+  .section-navy li,
+  .section-navy h2,
+  .section-navy h3 {
+    color: #1A1A1A !important;
+  }
+
+  /* ─── Acentos dorados y azules conservados ─── */
+  .eyebrow,
+  .quote,
+  .tl-date,
+  .cta-side-caption { color: #C8A23A !important; }
+  .quote { border-left-color: #C8A23A !important; }
+  .section-title { color: #123A63 !important; }
+
+  /* ─── Tarjeta de pago ─── */
+  .payment-card {
+    background: #FAF8F1 !important;
+    border: 1.5pt solid #C8A23A !important;
+    page-break-inside: avoid;
+    margin-top: 8mm !important;
+  }
+  .payment-card::before { display: none !important; }
+  .pay-content h3 { color: #123A63 !important; }
+  .pay-content > p { color: #333 !important; }
+  .pay-row {
+    background: #FFFFFF !important;
+    border-left: 3pt solid #C8A23A !important;
+    page-break-inside: avoid;
+  }
+  .pay-row-title { color: #123A63 !important; }
+  .pay-row-sub { color: #555 !important; }
+  .pay-account {
+    background: #FFFFFF !important;
+    border: 1pt dashed #C8A23A !important;
+    color: #0B2645 !important;
+  }
+  .pay-phone {
+    background: transparent !important;
+    border: none !important;
+    color: #123A63 !important;
+    text-decoration: underline !important;
+    text-decoration-color: #C8A23A !important;
+    padding: 0 !important;
+  }
+  .pay-note {
+    background: #FAF6EA !important;
+    color: #6B5000 !important;
+    border: 1pt solid #E8DCA8 !important;
+  }
+
+  /* ─── Timeline ─── */
+  .timeline { page-break-inside: avoid; }
+  .timeline::before { background: linear-gradient(90deg, transparent, #C8A23A, transparent) !important; }
+  .tl-card {
+    background: #FFFFFF !important;
+    border: 1pt solid #E2DDCB !important;
+    border-top: 3pt solid #123A63 !important;
+    page-break-inside: avoid;
+  }
+  .tl-card p { color: #333 !important; }
+
+  /* ─── Tarjetas temáticas (mantienen su imagen) ─── */
+  .themes { page-break-inside: auto; }
+  .theme {
+    page-break-inside: avoid;
+    min-height: 55mm !important;
+    box-shadow: none !important;
+    border: 1pt solid #E2DDCB !important;
+  }
+  .theme::after {
+    background: linear-gradient(180deg, rgba(11,38,69,0) 20%, rgba(11,38,69,.9) 100%) !important;
+  }
+  .theme-body h3,
+  .theme-body p { color: #F4F1E8 !important; }
+
+  /* ─── Banda tema central ─── */
+  .central-band {
+    background: #F7F3E6 !important;
+    border-left: 4pt solid #C8A23A !important;
+    page-break-inside: avoid;
+  }
+  .central-band p { color: #123A63 !important; }
+
+  /* ─── CTA band: sin imagen de fondo, fondo blanco ─── */
+  .cta-band {
+    background: #FFFFFF !important;
+    padding: 8mm 0 !important;
+    page-break-inside: avoid;
+  }
+  .cta-overlay { display: none !important; }
+  .cta-inner h2 { color: #123A63 !important; }
+  .cta-inner p  { color: #333 !important; }
+  .cta-note     { color: #666 !important; }
+
+  /* ─── Check list ─── */
+  .check-list li { color: #1A1A1A !important; }
+  .check-list-dark li::before { background: #123A63 !important; color: #C8A23A !important; }
+  .authorities { color: #555 !important; border-top-color: #E2DDCB !important; }
+  .authorities-dark { color: #555 !important; }
+
+  /* ─── Tabla logística ─── */
+  .table-wrap { page-break-inside: avoid; border: 1pt solid #E2DDCB !important; }
+  .log-table th {
+    background: #FAF6EA !important;
+    color: #123A63 !important;
+    border-bottom: 1pt solid #E2DDCB !important;
+    font-size: 9pt !important;
+    padding: 6pt 8pt !important;
+  }
+  .log-table td {
+    color: #1A1A1A !important;
+    border-bottom: 1pt solid #EFEBDE !important;
+    padding: 6pt 8pt !important;
+    font-size: 10pt !important;
+  }
+  .log-table tr { page-break-inside: avoid; }
+  .table-link { color: #123A63 !important; border-bottom-color: #C8A23A !important; }
+
+  /* ─── Contacto ─── */
+  .mail-list a {
+    background: #F7F5EE !important;
+    border: 1pt solid #C8A23A !important;
+    color: #123A63 !important;
+    page-break-inside: avoid;
+  }
+  .mail-list a span { color: #C8A23A !important; }
+
+  .conv-link {
+    background: #FAF6EA !important;
+    border: 1pt dashed #C8A23A !important;
+    page-break-inside: avoid;
+  }
+  .conv-link a { color: #123A63 !important; border-bottom-color: #C8A23A !important; }
+  .conv-link p { color: #333 !important; }
+
+  /* ─── Imágenes con marco ─── */
+  .img-frame {
+    page-break-inside: avoid;
+    box-shadow: none !important;
+    border: 1pt solid #E2DDCB !important;
+  }
+  .img-frame::after { border: none !important; }
+  .cta-side { page-break-inside: avoid; }
+  .cta-side img { box-shadow: none !important; border: 1pt solid #E2DDCB !important; }
+
+  /* ─── Footer ─── */
+  .site-footer {
+    background: #FFFFFF !important;
+    color: #555 !important;
+    border-top: 1.5pt solid #C8A23A !important;
+    padding: 6mm 0 4mm !important;
+  }
+  .footer-brand strong { color: #123A63 !important; }
+  .footer-brand span,
+  .footer-copy { color: #555 !important; font-size: 9pt !important; }
+
+  /* ─── Enlaces activos y reconocibles ─── */
+  a[href^="http"],
+  a[href^="mailto"],
+  a[href^="tel"] {
+    text-decoration: underline !important;
+    text-decoration-thickness: 1px !important;
+    text-underline-offset: 2px !important;
+    text-decoration-color: #C8A23A !important;
+    color: #123A63 !important;
+  }
+
+  /* Mostrar la URL sólo cuando el texto del enlace no la contiene */
+  a[href^="http"]:not([href*="ldaniel91"]):not([href*="wa.me"])::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #666;
+    font-weight: 400;
+    word-break: break-all;
+  }
+
+  /* ─── Saltos de página controlados ─── */
+  h1, h2, h3 { page-break-after: avoid; }
+  p { orphans: 3; widows: 3; }
+  .payment-card,
+  .tl-card,
+  .theme,
+  .img-frame,
+  .table-wrap,
+  .mail-list a,
+  .conv-link,
+  .central-band,
+  .authorities,
+  .log-table tr {
+    page-break-inside: avoid;
+  }
+}
