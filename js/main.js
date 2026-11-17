@@ -160,4 +160,36 @@
     yearEl.innerHTML = yearEl.innerHTML.replace('2026–2027', `2026–${Math.max(y, 2027)}`);
   }
 
+  /* ─── 8. Copiar número de cuenta bancaria ─── */
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const text = btn.dataset.copy;
+      const original = btn.textContent;
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
+        } else {
+          // Fallback para navegadores antiguos / sin HTTPS
+          const tmp = document.createElement('textarea');
+          tmp.value = text;
+          tmp.style.position = 'fixed';
+          tmp.style.opacity = '0';
+          document.body.appendChild(tmp);
+          tmp.select();
+          document.execCommand('copy');
+          document.body.removeChild(tmp);
+        }
+        btn.textContent = '¡Copiado!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = original;
+          btn.classList.remove('copied');
+        }, 2000);
+      } catch (err) {
+        btn.textContent = 'Error';
+        setTimeout(() => { btn.textContent = original; }, 2000);
+      }
+    });
+  });
+
 })();
