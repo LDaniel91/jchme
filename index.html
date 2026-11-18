@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Montserrat:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/styles.css" />
-<link rel="stylesheet" href="css/print.css" media="print" />
+  <link rel="stylesheet" href="css/print.css" media="print" />
   <link rel="icon" type="image/png" href="assets/img/logo.png" />
 </head>
 <body>
@@ -65,6 +65,10 @@
       <div class="hero-actions">
         <a href="#contacto" class="btn btn-gold">Enviar mi resumen</a>
         <a href="https://ldaniel91.github.io/jchme/" class="btn btn-ghost" target="_blank" rel="noopener">Ver convocatoria completa</a>
+        <button type="button" class="btn btn-ghost print-btn"
+                title="Se abrirá el diálogo de impresión — elige «Guardar como PDF»">
+          📄 Descargar PDF
+        </button>
       </div>
 
       <!-- Cuenta regresiva al CIERRE DE RESÚMENES -->
@@ -296,7 +300,15 @@
     <div class="container cta-inner reveal">
       <h2>Tu resumen cierra el 30 de noviembre</h2>
       <p>Envía tu título y resumen a las gestoras de información de la Biblioteca del Hospital Militar, en persona o por correo con acuse de recibo.</p>
-      <a href="#contacto" class="btn btn-gold btn-lg">Enviar mi resumen ahora</a>
+
+      <div class="cta-actions">
+        <a href="#contacto" class="btn btn-gold btn-lg">Enviar mi resumen ahora</a>
+        <button type="button" class="btn btn-ghost btn-lg print-btn"
+                title="Se abrirá el diálogo de impresión — elige «Guardar como PDF»">
+          📄 Descargar PDF
+        </button>
+      </div>
+
       <p class="cta-note">Trabajo completo en Word hasta el 10 de diciembre de 2026</p>
     </div>
   </section>
@@ -378,6 +390,10 @@
             ldaniel91.github.io/jchme
           </a>
           <p>Encuentra el programa, ejes temáticos, cuotas, formularios y toda la información actualizada.</p>
+          <button type="button" class="btn btn-gold print-btn print-btn-conv"
+                  title="Se abrirá el diálogo de impresión — elige «Guardar como PDF»">
+            📄 Descargar esta página en PDF
+          </button>
         </div>
 
         <div class="hashtags">
@@ -411,6 +427,13 @@
   </footer>
 
   <button class="to-top" id="toTop" aria-label="Volver arriba">↑</button>
+
+  <!-- Botón flotante para descargar PDF -->
+  <button type="button" class="pdf-fab print-btn" id="pdfFab"
+          aria-label="Descargar convocatoria en PDF"
+          title="Se abrirá el diálogo de impresión — elige «Guardar como PDF»">
+    📄 PDF
+  </button>
 
   <script src="js/main.js"></script>
 </body>
