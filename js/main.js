@@ -60,9 +60,9 @@
 
   /* ─── 5. Fechas clave del evento (hora de Cuba, UTC-5) ─── */
   const FECHAS = {
-    cierreResumenes: new Date('2026-11-30T23:59:59-05:00').getTime(), // cierre de resúmenes
-    inicioJornada:   new Date('2027-01-06T00:00:00-05:00').getTime(), // inicio de la Jornada
-    finJornada:      new Date('2027-01-08T23:59:59-05:00').getTime()  // fin de la Jornada
+    cierreResumenes: new Date('2026-11-30T23:59:59-05:00').getTime(),
+    inicioJornada:   new Date('2027-01-06T00:00:00-05:00').getTime(),
+    finJornada:      new Date('2027-01-08T23:59:59-05:00').getTime()
   };
 
   const pad = (n) => String(n).padStart(2, '0');
@@ -107,7 +107,6 @@
     const diff = FECHAS.inicioJornada - Date.now();
     const now  = Date.now();
 
-    // Si ya inició la Jornada
     if (diff <= 0 && now < FECHAS.finJornada) {
       cdJornada.days.textContent  = '🎉';
       cdJornada.hours.textContent = 'EN';
@@ -116,7 +115,6 @@
       return;
     }
 
-    // Si ya terminó la Jornada
     if (now >= FECHAS.finJornada) {
       cdJornada.days.textContent  = '—';
       cdJornada.hours.textContent = '—';
@@ -125,14 +123,12 @@
       return;
     }
 
-    // Cuenta normal
     cdJornada.days.textContent  = pad(Math.floor(diff / (1000 * 60 * 60 * 24)));
     cdJornada.hours.textContent = pad(Math.floor((diff / (1000 * 60 * 60)) % 24));
     cdJornada.mins.textContent  = pad(Math.floor((diff / (1000 * 60)) % 60));
     cdJornada.secs.textContent  = pad(Math.floor((diff / 1000) % 60));
   }
 
-  /* ─── Tick global cada segundo ─── */
   function tick() {
     updateCierre();
     updateJornada();
@@ -169,7 +165,6 @@
         if (navigator.clipboard && window.isSecureContext) {
           await navigator.clipboard.writeText(text);
         } else {
-          // Fallback para navegadores antiguos / sin HTTPS
           const tmp = document.createElement('textarea');
           tmp.value = text;
           tmp.style.position = 'fixed';
@@ -191,5 +186,27 @@
       }
     });
   });
+
+  /* ─── 9. ✅ DESCARGA DE LA CONVOCATORIA EN PDF ───
+     Invoca el diálogo de impresión del navegador;
+     el usuario elige "Guardar como PDF" / "Microsoft Print to PDF".
+     Gracias al atributo media="print" en print.css, la página
+     se renderiza con estilos de impresión limpios. */
+  window.addEventListener('beforeprint', () => {
+    // Garantiza que todas las animaciones de entrada sean visibles
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+      el.classList.add('visible');
+    });
+  });
+
+  document.querySelectorAll('.print-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      // Pequeño retardo para que el navegador aplique el layout de impresión
+      setTimeout(() => window.print(), 80);
+    });
+  });
+
+  // Atajo de teclado: Ctrl+P / Cmd+P ya abre el diálogo (comportamiento nativo).
 
 })();
