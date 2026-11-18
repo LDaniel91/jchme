@@ -38,7 +38,11 @@
   .journey-countdown,
   .hashtags,
   .copy-btn,
-  .cta-band .btn {
+  .cta-actions,
+  .cta-band .btn,
+  .pdf-fab,
+  .print-btn,            /* ← oculta todos los botones "Descargar PDF" */
+  .print-btn-conv {
     display: none !important;
   }
 
@@ -246,6 +250,7 @@
   }
   .conv-link a { color: #123A63 !important; border-bottom-color: #C8A23A !important; }
   .conv-link p { color: #333 !important; }
+  .print-btn-conv { display: none !important; }
 
   /* ─── Imágenes con marco ─── */
   .img-frame {
